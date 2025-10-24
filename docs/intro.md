@@ -11,19 +11,27 @@ chains.
 
 ## Quickstart - Foundry
 
-1. Install the SDK by running `forge install philogy/manyzeros-foundry`
-2. Import in your deploy script `import {MANY_ZEROS} from "manyzeros-foundry/IManyZeros.sol";`
+1. Install the SDK by running `forge install philogy/manyzeros-foundry` in your project
+2. Import in your deploy script/test `import {MANY_ZEROS} from "manyzeros-foundry/IManyZeros.sol";`
 
 :::note
 To use Many Zeros in an environment such as tests where it's not
-deployed you can import and call the `deployIntoEnvironmentUsingCheatcodes()` function.
+deployed you can import and call the `deployIntoEnvironmentUsingCheatcodes` function:
 
+```solidity
+import {Test} from "forge-std/Test.sol";
+import {MANY_ZEROS, deployIntoEnvironmentUsingCheatcodes} from "manyzeros-foundry/IManyZeros.sol";
+
+contract MyTest is Test {
+    function setUp() public {
+        deployIntoEnvironmentUsingCheatcodes();
+    }
+}
+```
 :::
 
-3. Buy an address on [manyzeros.xyz](https://manyzeros.xyz)
-or mint your own by calling `MANY_ZEROS.mint(to, id, nonce)` with
-your own `id` & `nonce` (not any `id` is valid as long as the 20
-leading bytes are the caller's address).
+3. Buy an address at [manyzeros.xyz](https://manyzeros.xyz)
+or [generate your own](diy.md).
 4. Add the deployment code:
 
 ```solidity
