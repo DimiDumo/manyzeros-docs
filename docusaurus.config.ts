@@ -6,19 +6,16 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Many Zeros',
-  tagline: 'Get custom vanity addresses.',
+  tagline: 'Gas-optimized vanity Ethereum addresses for smart contracts.',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // Production url of the docs site. Used for canonical URLs, og:url and the
+  // generated sitemap — must be correct or search engines index the wrong host.
+  url: 'https://docs.manyzeros.xyz',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Many Zeros', // Usually your GitHub org/user name.
-  projectName: 'manyzeros-docs', // Usually your repo name.
+  organizationName: 'DimiDumo',
+  projectName: 'manyzeros-docs',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -36,27 +33,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/DimiDumo/manyzeros-docs/tree/main/',
           routeBasePath: '/', // Make docs available at root
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // No blog on the docs site.
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -67,13 +48,19 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     colorMode: {
       defaultMode: 'dark', // default theme mode
       disableSwitch: false, // allow users to switch themes manually
       respectPrefersColorScheme: true, // enable syncing with the system theme
     },
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/preview.png',
+    metadata: [
+      {
+        name: 'keywords',
+        content:
+          'vanity address, ethereum, leading zeros, gas optimization, create3, smart contract, ERC-721',
+      },
+    ],
     navbar: {
       title: 'Many Zeros',
       logo: {
@@ -85,16 +72,42 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Vanity Address',
+          label: 'Docs',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Philogy/sub-zero-contracts',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          href: 'https://manyzeros.xyz/12',
+          label: 'Buy an address ↗',
           position: 'right',
         },
       ],
     },
-    footer: {},
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Many Zeros',
+          items: [
+            { label: 'Buy an address', href: 'https://manyzeros.xyz/12' },
+            { label: 'Custom address', href: 'https://manyzeros.xyz/custom' },
+            { label: 'My addresses', href: 'https://manyzeros.xyz/wallet' },
+            { label: 'FAQ', href: 'https://manyzeros.xyz/faq/why' },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            { label: 'GitHub', href: 'https://github.com/Philogy/sub-zero-contracts' },
+            { label: 'Telegram', href: 'https://t.me/tokenized_b00bs' },
+          ],
+        },
+      ],
+      copyright: `Many Zeros · <a href="https://manyzeros.xyz">manyzeros.xyz</a>`,
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
